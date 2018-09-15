@@ -1,7 +1,15 @@
 body{
-  background-color: black;
-  color: rgb(255,255,255);
+  background:#efefef;
+  margin:0;
+}
+*{
   margin: 0;
+  padding: 0;
+}
+hr{
+  height:0;
+  border: none;
+  border-top:1px solid #DEDEDE; 
 }
 a{
   color: inherit;
@@ -9,45 +17,145 @@ a{
 }
 .clearfix::after{
   content: '';
-  display:block;
+  display: block;
   clear:both;
 }
-.top-navbar{
-  padding: 20px 16px;
+.top-nav-bar{
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
-.top-navbar > nav {
-  padding-top: 7px;
+.top-nav-bar .inner{
+  padding: 0 16px;
+}
+.top-nav-bar .logo{
+  float: left;
+  font-size: 24px;
+  font-family: 'Arial Black';
+  padding-top: 3px;
+  padding-bottom: 4px;
+}
+.top-nav-bar .logo .rs{
+  margin-right: 4px;
+  color: #e6686a
+}
+.top-nav-bar .logo .card{
+  color: #9a9da2;
+  margin: 0 8px;
+}
+.top-nav-bar nav{
   float: right;
+  padding-top: 7px;
 }
-.top-navbar > nav > ul{
+.top-nav-bar nav ul{
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.top-navbar > nav > ul > li {
+.top-nav-bar nav ul li{
   float: left;
-  margin: 0 17px;
+  margin:0 17px;
+  font-weight: bold;
 }
-.top-navbar > nav > ul > li > a{
+.top-nav-bar nav ul li a{
+  display: block;
   font-size: 12px;
   color: #b7b7b7;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid transparent;
+  padding: 5px 0;
+}
+.top-nav-bar nav ul li a:hover{
+  border-bottom: 3px solid #e06567;
+}
+.banner{
+  background-image: url(./img/rs-cover.jpg);
+  height: 516px;
+  background-position: center center;
+  background-size: cover;
+}
+.banner .mask{
+  height: 516px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.user-card{
+  max-width: 940px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  color: black;
+}
+.user-card .picture img{
+  width: 299px;
+  height: 347px;
+}
+.user-card .welcome{
+  color: white;
+  background:#e6686a;
+  display: inline-block;
+  padding:4px 16px;
+  line-height: 22px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.user-card .welcome .triangle{
+  width: 0;
+	height: 0;
+	border-top: 10px solid #e6686a;
+  border-right: 10px solid transparent;
+  position: absolute;
+  left:4px;
+  top: 100%;
+}
+.user-card .picture-and-text{
+  padding: 50px;
+}
+.user-card .picture{
+  float: left;
+}
+.user-card .text{
+  float: left;
+  margin-left: 66px;
+  width:470px
+}
+.user-card .text h1{
+  margin-top: 18px;
+}
+.user-card .text hr{
+  margin: 20px 0;
+}
+.user-card dl dt,
+.user-card dl dd{
+  float: left;
+  padding: 10px 0;
+}
+.user-card dl dt{
+  width: 30%;
   font-weight: bold;
-  padding:5px 0;
-  display: block;
 }
-.top-navbar > nav > ul > li > a:hover{
-  border-bottom:3px solid #e06567;
+.user-card dl dd{
+  width: 70%;
+  color: #9da0a7;
 }
-.top-navbar .logo{
-  font-size: 24px;
-  font-family: 'Arial Black';
-  padding-top:3px;
-  padding-bottom: 4px;
+.user-card > footer.media{
+  background: #E6686A;
+  text-align: center;
 }
-.top-navbar .logo .resume{
-  /* margin-right: 4px; */
-  color: #e6686a;
+.user-card > footer.media > a{
+  display: inline-block;
+  width: 40px;
+  line-height: 30px;
+  padding: 5px 0;
+  border-radius: 50%;
+  margin: 16px;
 }
-.top-navbar .logo .card{
-  color: #9a9da2;
+.user-card > footer.media > a:hover{
+  background: #CF5D5F;
+}
+.user-card svg{
+  width: 30px;
+  height: 30px; 
+  fill: white;
+  vertical-align: top;
 }
