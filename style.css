@@ -6,6 +6,12 @@ body{
   margin: 0;
   padding: 0;
 }
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 hr{
   height:0;
   border: none;
@@ -158,4 +164,26 @@ a{
   height: 30px; 
   fill: white;
   vertical-align: top;
+}
+main{
+  margin-top: -340px;
+}
+main .resume-download-rapper{
+  text-align: center;
+}
+main .resume-download{
+  font-size: 14px;
+  line-height: 16px;
+  padding: 21px 55px;
+  display: inline-block;
+  border: 1px solid #cdcfd1;
+  background: #efefef;
+  border-radius: 2px;
+  color: #3d4451;
+  font-weight: bold;
+  margin: 32px 0;
+}
+main .resume-download:hover{
+  transition: box-shadow .3s;
+  box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.3);
 }
