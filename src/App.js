@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
+import Home from './components/Home'
 import './App.css';
 
-import { Layout, Menu, Breadcrumb, Icon, } from 'antd';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import {
+  Layout, Menu, Breadcrumb, Icon,
+} from 'antd';
+
+const Goods = () => <h2>Goods</h2>;
+const Order = () => <h2>Order</h2>;
+const Users = () => <h2>Users</h2>;
 
 const {
   Header, Content, Footer, Sider,
@@ -20,54 +29,59 @@ class App extends React.Component {
 
   render() {
     return (
-      <Layout style={{ minHeight: '100vh' }}>
-        <Sider
-          collapsible
-          collapsed={this.state.collapsed}
-          onCollapse={this.onCollapse}
-        >
-          <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            
-            <Menu.Item key="1">
-              <Icon type="home" />
-              <span>首页</span>
-            </Menu.Item>
-            <SubMenu
-              key="sub1"
-              title={<span><Icon type="shop" /><span>商品</span></span>}
-            >
-              <Menu.Item key="3">商品1</Menu.Item>
-              <Menu.Item key="4">商品2</Menu.Item>
-              <Menu.Item key="5">商品3</Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub2"
-              title={<span><Icon type="download" /><span>订单</span></span>}
-            >
-              <Menu.Item key="6">订单 1</Menu.Item>
-              <Menu.Item key="8">订单 2</Menu.Item>
-            </SubMenu>
-            <Menu.Item key="9">
-              <Icon type="file" />
-              <span>用户</span>
-            </Menu.Item>
-          </Menu>
-        </Sider>
-        <Layout>
-          <Header style={{ background: '#fff', padding: 0 }} />
-          <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>标题</Breadcrumb.Item>
-            </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              内容
+      <Router>
+        <Layout style={{ minHeight: '100vh' }}>
+          <Sider
+            collapsible
+            collapsed={this.state.collapsed}
+            onCollapse={this.onCollapse}
+          >
+            <div className="logo" />
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+              <Menu.Item key="1">
+                <Link to='/'>
+                  <Icon type="pie-chart" />
+                  <span>首页</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="2">
+                <Link to='/goods'>
+                  <Icon type="shop" />
+                  <span>商品</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="3">
+                <Link to='/order'>
+                  <Icon type="download" />
+                  <span>订单</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="4">
+                <Link to='/users'>
+                  <Icon type="user" />
+                  <span>用户</span>
+                </Link>
+              </Menu.Item>
+            </Menu>
+          </Sider>
+          <Layout>
+            <Header style={{ background: '#fff', padding: 0 }} />
+            {/* <Content style={{ margin: '0 16px' }}>
+              <Breadcrumb style={{ margin: '16px 0' }}>
+                <Breadcrumb.Item>User</Breadcrumb.Item>
+                <Breadcrumb.Item>Bill</Breadcrumb.Item>
+              </Breadcrumb>
+              <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+                Bill is a cat.
             </div>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>
-          </Footer>
+            </Content> */}
+            <Route path="/" exact component={Home} />
+            <Route path="/goods" component={Goods} />
+            <Route path="/order" component={Order} />
+            <Route path="/users" component={Users} />
+          </Layout>
         </Layout>
-      </Layout>
+      </Router>
     );
   }
 }
